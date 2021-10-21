@@ -41,8 +41,6 @@ class _InputPageState extends State<InputPage> {
           Divider(),
           _crearBoton(),
           Divider(),
-          //_crearIcono(),
-          Divider(),
           _crearFecha(context),
           Divider(),
           _crearDropdown(),
@@ -120,7 +118,7 @@ class _InputPageState extends State<InputPage> {
         //El titulo del cuadro
         labelText: "Password",
         //El icono que estara dentro del cuadro
-        suffixIcon: Icon(Icons.lock_open),
+        suffixIcon: _crearIcono(),
         //El icono que estara delante del cuadro
         icon: Icon(Icons.lock),
       ),
@@ -232,9 +230,15 @@ class _InputPageState extends State<InputPage> {
   Widget _crearIcono() {
     return Column(
       children: [
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+        ),
         GestureDetector(
           child: FittedBox(
-            child: Icon(Icons.password),
+            child: Icon(
+              Icons.lock_open,
+              size: 30,
+            ),
           ),
           onTap: () => setState(
             () {
