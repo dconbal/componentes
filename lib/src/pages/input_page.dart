@@ -13,6 +13,7 @@ class _InputPageState extends State<InputPage> {
   String _email = "";
   String _fecha = "";
   String _opcionSeleccionada = "Volar";
+  bool _valorCheck = false;
   //crearmos el editing que editara el email
   //que este esta controlado por esta variable
   var txt = TextEditingController();
@@ -35,6 +36,12 @@ class _InputPageState extends State<InputPage> {
           _crearEmail(),
           Divider(),
           _crearPassword(),
+          Divider(),
+          _crearCheckBox(),
+          Divider(),
+          _crearBoton(),
+          Divider(),
+          //_crearIcono(),
           Divider(),
           _crearFecha(context),
           Divider(),
@@ -102,7 +109,7 @@ class _InputPageState extends State<InputPage> {
 
   Widget _crearPassword() {
     return TextField(
-      obscureText: true,
+      obscureText: !_valorCheck,
       keyboardType: TextInputType.emailAddress,
       decoration: InputDecoration(
         border: OutlineInputBorder(
@@ -206,6 +213,52 @@ class _InputPageState extends State<InputPage> {
             },
           ),
         )
+      ],
+    );
+  }
+
+  Widget _crearCheckBox() {
+    return CheckboxListTile(
+      title: Text("Mostrar Contraseña"),
+      value: _valorCheck,
+      onChanged: (value) {
+        setState(() {
+          _valorCheck = value!;
+        });
+      },
+    );
+  }
+
+  Widget _crearIcono() {
+    return Column(
+      children: [
+        GestureDetector(
+          child: FittedBox(
+            child: Icon(Icons.password),
+          ),
+          onTap: () => setState(
+            () {
+              _valorCheck = !_valorCheck;
+            },
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _crearBoton() {
+    return Column(
+      children: [
+        Center(
+          child: TextButton(
+            child: Text("Mostrar la contraseña"),
+            onPressed: () {
+              setState(() {
+                _valorCheck = !_valorCheck;
+              });
+            },
+          ),
+        ),
       ],
     );
   }
