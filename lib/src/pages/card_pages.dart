@@ -61,26 +61,28 @@ class CardPage extends StatelessWidget {
   Widget _cardTipo2() {
     final card = Container(
       //clipBehavior: Clip.antiAlias,
-      child: Column(
-        children: <Widget>[
-          FadeInImage(
-            image: NetworkImage(
-                "https://www.xtrafondos.com/descargar.php?id=5846&resolucion=3840x2160"),
-            placeholder: AssetImage('assets/baile.gif'),
-            fadeInDuration: Duration(milliseconds: 200),
-            height: 300,
-            fit: BoxFit.cover,
-          ),
-          //Image(
-          //  image: NetworkImage(
-          //"https://www.xtrafondos.com/descargar.php?id=5846&resolucion=3840x2160"),
-          //      "https://pbs.twimg.com/profile_images/1171625670247682048/QDZn9pbM.jpg"),
-          //),
-          Container(
-            padding: EdgeInsets.all(10),
-            child: Text("Messi messi messi messi"),
-          ),
-        ],
+      child: FittedBox(
+        child: Column(
+          children: <Widget>[
+            FadeInImage(
+              image: NetworkImage(
+                  "https://www.xtrafondos.com/descargar.php?id=5846&resolucion=3840x2160"),
+              placeholder: AssetImage('assets/baile.gif'),
+              fadeInDuration: Duration(milliseconds: 200),
+              height: 300,
+              fit: BoxFit.fill,
+            ),
+            //Image(
+            //  image: NetworkImage(
+            //"https://www.xtrafondos.com/descargar.php?id=5846&resolucion=3840x2160"),
+            //      "https://pbs.twimg.com/profile_images/1171625670247682048/QDZn9pbM.jpg"),
+            //),
+            Container(
+              padding: EdgeInsets.all(10),
+              child: Text("Messi messi messi messi"),
+            ),
+          ],
+        ),
       ),
     );
 
